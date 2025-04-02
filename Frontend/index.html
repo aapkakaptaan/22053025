@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media Analytics Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <div class="logo">
+          <i class="fas fa-chart-line"></i>
+          <h2>Social Analytics</h2>
+        </div>
+        <ul class="nav-links">
+          <li class="active">
+            <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-users"></i> Users</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-comment-alt"></i> Posts</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-chart-pie"></i> Analytics</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+          <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <header class="top-bar">
+          <div class="toggle-sidebar">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="search-container">
+            <input type="text" placeholder="Search..." />
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="user-menu">
+            <div class="notifications">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </div>
+            <div class="user-profile">
+              <img src="https://via.placeholder.com/40" alt="User" />
+              <span>Admin User</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="dashboard">
+          <h1 class="page-title">Analytics Dashboard</h1>
+
+          <!-- Stats Cards -->
+          <div class="stats-cards">
+            <div class="stat-card users-card">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-details">
+                <h3>Total Users</h3>
+                <p class="stat-number">14</p>
+                <p class="stat-change increase">
+                  <i class="fas fa-arrow-up"></i> 12% from last week
+                </p>
+              </div>
+            </div>
+
+            <div class="stat-card posts-card">
+              <div class="stat-icon">
+                <i class="fas fa-comment-alt"></i>
+              </div>
+              <div class="stat-details">
+                <h3>Total Posts</h3>
+                <p class="stat-number">246</p>
+                <p class="stat-change increase">
+                  <i class="fas fa-arrow-up"></i> 8% from last week
+                </p>
+              </div>
+            </div>
+
+            <div class="stat-card comments-card">
+              <div class="stat-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div class="stat-details">
+                <h3>Comments</h3>
+                <p class="stat-number">1,285</p>
+                <p class="stat-change decrease">
+                  <i class="fas fa-arrow-down"></i> 3% from last week
+                </p>
+              </div>
+            </div>
+
+            <div class="stat-card engagement-card">
+              <div class="stat-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="stat-details">
+                <h3>Engagement</h3>
+                <p class="stat-number">68%</p>
+                <p class="stat-change increase">
+                  <i class="fas fa-arrow-up"></i> 5% from last week
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Panels -->
+          <div class="data-panels">
+            <!-- Users Panel -->
+            <div class="panel" id="top-users-panel">
+              <div class="panel-header">
+                <h2>Top Users</h2>
+                <div class="panel-actions">
+                  <button class="refresh-btn">
+                    <i class="fas fa-sync-alt"></i>
+                  </button>
+                  <div class="dropdown">
+                    <button class="dropdown-btn">
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="#">View All</a>
+                      <a href="#">Export Data</a>
+                      <a href="#">Settings</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>User</th>
+                      <th>Posts</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="users-table-body">
+                    <!-- Will be populated by JavaScript -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Posts Panel -->
+            <div class="panel" id="top-posts-panel">
+              <div class="panel-header">
+                <h2>Popular Posts</h2>
+                <div class="panel-actions">
+                  <button class="refresh-btn">
+                    <i class="fas fa-sync-alt"></i>
+                  </button>
+                  <div class="dropdown">
+                    <button class="dropdown-btn">
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="#">View All</a>
+                      <a href="#">Export Data</a>
+                      <a href="#">Settings</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="tabs">
+                  <button class="tab-btn active" data-type="popular">
+                    Popular
+                  </button>
+                  <button class="tab-btn" data-type="latest">Latest</button>
+                </div>
+                <div class="posts-container" id="posts-container">
+                  <!-- Will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
